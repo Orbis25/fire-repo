@@ -1,2 +1,2 @@
 # FIREREPO
-Libreria que contiene el patrón de repositorio aplicado a firebase y algunos helpers particulares
+Library that contains a repository pattern in firebase and any helpers
