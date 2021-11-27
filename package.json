@@ -1,0 +1,34 @@
+{
+  "name": "fire-repo",
+  "version": "1.0.0",
+  "description": "This package is create to add repository pattern to firebase and implementing a helpers for help developers to write fast code.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Orbis25/fire-repo.git"
+  },
+  "keywords": [
+    "firebase",
+    "repository-pattern",
+    "typescript",
+    "fireRepo",
+    "fire-repo",
+    "FireRepo"
+  ],
+  "author": "Orbis Alonzo Gutierrez (Orbis25)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Orbis25/fire-repo/issues"
+  },
+  "homepage": "https://github.com/Orbis25/fire-repo#readme",
+  "dependencies": {
+    "firebase": "^9.5.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/uuid": "^8.3.3"
+  }
+}
