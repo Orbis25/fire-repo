@@ -24,7 +24,7 @@ export default class BaseModel {
   /**
    * User Created id of the entity
    */
-  createdBy: string;
+  createdBy!: string;
   /**
    * User Updated id of the entity
    */

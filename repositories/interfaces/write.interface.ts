@@ -16,15 +16,10 @@ export interface IWrite<TEntity extends BaseModel> {
    */
   update(id: string, entity: TEntity): Promise<TEntity>;
   /**
-   * Update an entity
-   * @param entity entity to update
-   */
-  update(entity: TEntity): Promise<TEntity>;
-  /**
    * Delete an entity
    * @param id id of the entity to delete
    * */
-  delete(id: string): Promise<void>;
+  deleteEntity(id: string): Promise<void>;
   /**
    * Applied soft delete to an entity
    * @param id id of the entity

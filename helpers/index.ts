@@ -1,3 +1,4 @@
-import { ToEntityArray, getFormateadFirebaseData } from "./fire-mapping.helper";
+import { toEntityArray, getFormateadFirebaseData } from "./fire-mapping.helper";
+import { fileUpload, removeFile } from "./fire-file.helper";
 
-export { ToEntityArray, getFormateadFirebaseData };
+export { toEntityArray, getFormateadFirebaseData, fileUpload, removeFile };
