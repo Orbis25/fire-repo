@@ -1,4 +1,4 @@
-import firebase from "firebase/compat/app";
+import { QuerySnapshot, DocumentData, Timestamp } from "firebase/firestore";
 import BaseModel from "../models/base.model";
 
 /**
@@ -15,13 +15,10 @@ export const getFormateadFirebaseData = <T>(data: any) => {
 
   //loop for keys and set data
   values.forEach((value, index) => {
-    if (value instanceof firebase.firestore.Timestamp) {
+    if (value instanceof Timestamp) {
       // format date
-      const time = data[keys[index]] as unknown as firebase.firestore.Timestamp;
-      const timeStamp = new firebase.firestore.Timestamp(
-        time.seconds,
-        time.nanoseconds
-      );
+      const time = data[keys[index]] as unknown as Timestamp;
+      const timeStamp = new Timestamp(time.seconds, time.nanoseconds);
       data[keys[index]] = timeStamp.toDate();
     }
   });
@@ -35,8 +32,8 @@ export const getFormateadFirebaseData = <T>(data: any) => {
  * @author Orbis Alonzo Gutierrez
  * @returns
  */
-export const ToEntityArray = <T extends BaseModel>(
-  docs: firebase.firestore.QuerySnapshot<firebase.firestore.DocumentData>
+export const toEntityArray = <T extends BaseModel>(
+  docs: QuerySnapshot<DocumentData>
 ): T[] => {
   //result is a object collection
   const results: T[] = [];

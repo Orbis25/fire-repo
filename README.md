@@ -10,17 +10,28 @@ This library is an implementation of the firebase repository pattern and some he
 
 1. [Installation](#installation)
 2. [Configuration](#configuration)
-3. [Project structure](#project-structure)
+3. [Libraries](#libraries)
+4. [Project structure](#project-structure)
    - [helpers](#helpers)
    - [models](#models)
    - [repositories](#repositories)
      - [implementations](#implementations)
      - [interfaces](#interfaces)
      - [types](#types)
-4. [Libraries](#libraries)
 5. [Use](#use)
    - [Methods](#methods)
 6. [Contribution](#contribution)
    - [Branches](#branches)
    - [Report an issuer](#report-un-issuer)
    - [Pull requests](#pull-requests)
+
+## Installation
+
+## Configuration
+
+## Libraries
+
+The used libraries are:
+
+- [Firebase v9.5](https://www.npmjs.com/package/firebase/v/9.5.0)
+- [uuid v8.3.2](https://www.npmjs.com/package/uuid/v/8.3.2)

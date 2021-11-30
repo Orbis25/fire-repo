@@ -1,6 +1,8 @@
-import firebase from "firebase/compat/app";
-import BaseModel from "../../models/base.model";
+import { Query } from "@firebase/firestore";
+import { DocumentData } from "firebase/firestore";
+
 import { FilterType } from "../types";
+import BaseModel from "../../models/base.model";
 /**
  * Represent the read interface base from the repository
  */
@@ -8,13 +10,9 @@ export interface IRead<TEntity extends BaseModel> {
   /**
    * Get all the entities
    * @param filters - The filters to apply
-   * @param isEquals - If the filters use equals or contains
    * @returns list of entities
    */
-  getAll(
-    filters?: FilterType<TEntity>[],
-    isEquals?: boolean
-  ): Promise<TEntity[]>;
+  getAll(filters?: FilterType<TEntity>[]): Promise<TEntity[]>;
 
   /**
    * Get the entity by id
@@ -35,5 +33,5 @@ export interface IRead<TEntity extends BaseModel> {
    * and the order by the createdAt field
    * return
    */
-  getCollection(): firebase.firestore.Query<firebase.firestore.DocumentData>;
+  getCollection(): Query<DocumentData>;
 }
