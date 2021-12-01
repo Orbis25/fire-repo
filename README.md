@@ -33,5 +33,6 @@ This library is an implementation of the firebase repository pattern and some he
 
 The used libraries are:
 
-- [Firebase v9.5](https://www.npmjs.com/package/firebase/v/9.5.0)
-- [uuid v8.3.2](https://www.npmjs.com/package/uuid/v/8.3.2)
+- [Firebase](https://www.npmjs.com/package/firebase/v/9.5.0)
+- [uuid](https://www.npmjs.com/package/uuid/v/8.3.2)
+- [Jest](https://www.npmjs.com/package/jest/v/27.4.2)

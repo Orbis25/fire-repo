@@ -4,7 +4,7 @@
   "description": "This package is create to add repository pattern to firebase and implementing a helpers for help developers to write fast code.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --verbose --passWithNoTests ./test"
   },
   "repository": {
     "type": "git",
@@ -25,7 +25,11 @@
   },
   "homepage": "https://github.com/Orbis25/fire-repo#readme",
   "dependencies": {
+    "@babel/preset-env": "^7.16.4",
+    "@babel/preset-typescript": "^7.16.0",
+    "@types/jest": "^27.0.3",
     "firebase": "^9.5.0",
+    "jest": "^27.4.2",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
