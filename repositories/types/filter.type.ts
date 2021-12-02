@@ -15,5 +15,5 @@ export type FilterType<TEntity extends BaseModel> = {
   /**
    * Define if use == or contains to filter the data
    */
-  isEquals: boolean;
+  isEquals?: boolean;
 };

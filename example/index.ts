@@ -1,5 +1,5 @@
 import BaseModel from "../models/base.model";
-import FireRepository from "../index";
+import { FireRepository } from "../index";
 import { firebaseConfiguration, collection } from "./configuration";
 
 /**
