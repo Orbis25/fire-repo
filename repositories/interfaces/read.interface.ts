@@ -12,7 +12,7 @@ export interface IRead<TEntity extends BaseModel> {
    * @param filters - The filters to apply
    * @returns list of entities
    */
-  getAll(filters?: FilterType<TEntity>[]): Promise<TEntity[]>;
+  getAll(filters?: FilterType<TEntity>): Promise<TEntity[]>;
 
   /**
    * Get the entity by id

@@ -7,6 +7,7 @@
  * @github Orbis25
  */
 
-import FireRepository from "./repositories/implementations/FireRepository";
+import FireRepository from "./repositories/implementations/fire.repository";
+import BaseModel from "./models/base.model";
 
-export default FireRepository;
+export { FireRepository, BaseModel };

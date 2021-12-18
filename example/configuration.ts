@@ -10,7 +10,7 @@ const firebaseConfig = {
   appId: "",
 };
 
-export const collection = "/peoples";
+export const collection = "/test";
 
 //initialize
 export const firebaseConfiguration = initializeApp(firebaseConfig);
