@@ -5,10 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-node@v2.5.0
-      - uses: iansu/codecov-action-node@v1.0.1
-        with:
-          flags: unittests 
+      - name: Install Dependencies
       - run: npm install
+      - name: Run unit test with jest
       - run: npm run test
       
 
