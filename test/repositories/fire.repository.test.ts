@@ -6,7 +6,7 @@ describe("FireRepository.getAll unit tests", () => {
   test("get all test with results", async () => {
     jest
       .spyOn(FireRepository.prototype, "getAll")
-      .mockImplementation((filters?: FilterType<any>[]) => {
+      .mockImplementation((filters?: FilterType<any>) => {
         return Promise.resolve([
           {
             id: "1",
@@ -22,7 +22,7 @@ describe("FireRepository.getAll unit tests", () => {
   test("get all test not results", async () => {
     jest
       .spyOn(FireRepository.prototype, "getAll")
-      .mockImplementation((filters?: FilterType<any>[]) => {
+      .mockImplementation((filters?: FilterType<any>) => {
         return Promise.resolve([]);
       });
 
@@ -33,13 +33,8 @@ describe("FireRepository.getAll unit tests", () => {
   test("get all test with filters", async () => {
     jest
       .spyOn(FireRepository.prototype, "getAll")
-      .mockImplementation((filters?: FilterType<any>[]) => {
-        if (
-          filters &&
-          filters.length > 0 &&
-          filters[0].key === "name" &&
-          filters[0].criteria === "test"
-        ) {
+      .mockImplementation((filters?: FilterType<any>) => {
+        if (filters && filters.key === "name" && filters.criteria === "test") {
           return Promise.resolve([
             {
               id: "1",
@@ -50,26 +45,19 @@ describe("FireRepository.getAll unit tests", () => {
         return Promise.resolve([]);
       });
 
-    const results = await FireRepository.prototype.getAll([
-      {
-        key: "name",
-        criteria: "test",
-        isEquals: false,
-      },
-    ]);
+    const results = await FireRepository.prototype.getAll({
+      key: "name",
+      criteria: "test",
+      isEquals: false,
+    });
     expect(results.length > 0).toEqual(true);
   });
 
   test("get all test with filters not results", async () => {
     jest
       .spyOn(FireRepository.prototype, "getAll")
-      .mockImplementation((filters?: FilterType<any>[]) => {
-        if (
-          filters &&
-          filters.length > 0 &&
-          filters[0].key === "name" &&
-          filters[0].criteria === "test"
-        ) {
+      .mockImplementation((filters?: FilterType<any>) => {
+        if (filters && filters.key === "name" && filters.criteria === "test") {
           return Promise.resolve([
             {
               id: "1",

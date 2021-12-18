@@ -24,7 +24,7 @@ export default class BaseModel {
   /**
    * User Created id of the entity
    */
-  createdBy!: string;
+  createdBy?: string;
   /**
    * User Updated id of the entity
    */
@@ -34,4 +34,9 @@ export default class BaseModel {
    * Flag to indicate if the entity is deleted
    * */
   isDeleted = false;
+
+  /**
+   * uuid to indicate if the entity is active
+   */
+  deleteToken?: string;
 }

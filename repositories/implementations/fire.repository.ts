@@ -22,7 +22,8 @@ import BaseModel from "../../models/base.model";
 import { IWrite } from "../interfaces/write.interface";
 import { IRead } from "../interfaces/read.interface";
 import { FilterType } from "../types";
-import { toEntityArray } from "../../helpers";
+import { toEntityArray, getFormateadFirebaseData } from "../../helpers";
+import { v4 as uuidv4 } from "uuid";
 
 /**
  * Represent the logic of the repository
@@ -47,22 +48,16 @@ export default abstract class FireRepository<T extends BaseModel>
     this.collectionName = collectionName;
   }
 
-  async getAll(filters?: FilterType<T>[]): Promise<T[]> {
+  async getAll(filters?: FilterType<T>): Promise<T[]> {
     let results = this.getCollection();
-    if (filters && filters.length > 0) {
-      filters.forEach(({ criteria, isEquals, key }) => {
-        if (isEquals) {
-          results = query(results, where(key.toString(), "==", criteria));
-        } else {
-          results = query(
-            results,
-            orderBy(key.toString()),
-            startAt(criteria),
-            endAt(`${criteria}\uf8ff`)
-          );
-        }
-      });
+   
+    if (filters) {
+      results = query(
+        results,
+        where(filters.key.toString(), "==", filters.criteria)
+      );
     }
+    
     return toEntityArray<T>(await getDocs(results));
   }
 
@@ -74,7 +69,7 @@ export default abstract class FireRepository<T extends BaseModel>
       throw new Error("Document not found");
     }
     const doc = response.docs[0];
-    return doc.data() as T;
+    return getFormateadFirebaseData(doc.data()) as T;
   }
 
   async getDocId(id: string): Promise<string> {
@@ -125,6 +120,6 @@ export default abstract class FireRepository<T extends BaseModel>
   }
 
   async remove(id: string): Promise<void> {
-    await this.update(id, { isDeleted: true } as T);
+    await this.update(id, { isDeleted: true, deleteToken: uuidv4() } as T);
   }
 }
