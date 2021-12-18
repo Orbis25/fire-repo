@@ -10,7 +10,6 @@ jobs:
           node-version: "14"
       - run: npm install
       - run: npm test
-
   unit-test:
     runs-on: ubuntu-latest
     name: publish unit tests results
