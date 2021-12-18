@@ -7,6 +7,10 @@
     "test": "jest --verbose --passWithNoTests ./test --ci --reporters=default --reporters=jest-junit",
     "dev-test": "jest --verbose --passWithNoTests ./test"
   },
+  "jest-junit": {
+    "outputDirectory": "reports/",
+    "outputName": "jest-results.xml"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Orbis25/fire-repo.git"
