@@ -324,6 +324,6 @@ describe("FireRepository.getCollection unit tests", () => {
       });
 
     const results = FireRepository.prototype.getCollection();
-    expect(results).not.toBeNull();
+    expect(results).toBeNull();
   });
 });
