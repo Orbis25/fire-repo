@@ -36,3 +36,4 @@ The used libraries are:
 - [Firebase](https://www.npmjs.com/package/firebase/v/9.5.0)
 - [uuid](https://www.npmjs.com/package/uuid/v/8.3.2)
 - [Jest](https://www.npmjs.com/package/jest/v/27.4.2)
+- [jest-junit](https://github.com/palmerj3/jest-junit)
