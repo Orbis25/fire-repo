@@ -16,3 +16,6 @@ jobs:
           name: JEST Tests
           path: reports/jest-*.xml
           reporter: jest-junit
+      - run: npm publish
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

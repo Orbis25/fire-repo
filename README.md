@@ -110,7 +110,7 @@ class UserService extends FireRepository<User> {
 
 ## Contribution
 
-If you want to contribute to the library you can create a branch in the repository and send a pull request.
+If you want to contribute to the library you can create a branch in the repository and send a pull request. Remember create great unit tests and documentation updates.
 
 ### Branches
 
