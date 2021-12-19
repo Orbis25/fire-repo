@@ -16,6 +16,13 @@ jobs:
           name: JEST Tests
           path: reports/jest-*.xml
           reporter: jest-junit
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  publish:
+    - name: 🔧 Setup .npmrc file for publish
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        registry-url: "https://registry.npmjs.org"
+    - run: npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
