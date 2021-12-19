@@ -1,6 +1,6 @@
 # FIRE-REPO 🔥
 
-This library is an implementation of the firebase repository pattern and some helpers to facilitate the work of developers using firebase. (ts projects only)
+This library is an implementation of the firebase repository pattern and some helpers to facilitate the work of developers using firebase. - (ts projects only)
 
 [![Main actions](https://github.com/Orbis25/fire-repo/actions/workflows/main.yml/badge.svg)](https://github.com/Orbis25/fire-repo/actions/workflows/main.yml)
 
