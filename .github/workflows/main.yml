@@ -1,4 +1,4 @@
-name: GitHub actions
+name: Main actions
 on:
   push:
     branches:
