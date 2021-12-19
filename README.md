@@ -17,6 +17,7 @@ This library is an implementation of the firebase repository pattern and some he
   - [Project structure](#project-structure)
   - [Use](#use)
     - [Methods](#methods)
+    - [Helpers](#helpers)
   - [Contribution](#contribution)
     - [Branches](#branches)
     - [Report an issuer](#report-an-issuer)
@@ -107,6 +108,13 @@ class UserService extends FireRepository<User> {
 - `getOne`: Get One entity.
 - `getDocId`: Get the document id.
 - `getCollection`: Get the collection.
+
+### Helpers
+
+- `fileUpload`: Upload a file to firebase storage.
+- `removeFile`: Remove a file from firebase storage.
+- `toEntityArray`: Convert an array of firebase data to an array of entities.
+- `getFormateadFirebaseData`: Format the retrieved data from firebase. (Date - timestamp)
 
 ## Contribution
 
