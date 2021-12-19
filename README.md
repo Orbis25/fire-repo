@@ -1,7 +1,5 @@
 # FIRE-REPO 🔥
 
-_`The library is still under development.`_
-
 This library is an implementation of the firebase repository pattern and some helpers to facilitate the work of developers using firebase.
 
 [![GitHub actions](https://github.com/Orbis25/fire-repo/actions/workflows/actions.yml/badge.svg)](https://github.com/Orbis25/fire-repo/actions/workflows/actions.yml)
