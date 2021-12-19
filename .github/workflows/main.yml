@@ -1,5 +1,8 @@
 name: GitHub actions
-on: [push]
+on:
+  push:
+    branches:
+      - main
 jobs:
   actions:
     runs-on: ubuntu-latest
