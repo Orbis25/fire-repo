@@ -19,6 +19,7 @@ This library is an implementation of the firebase repository pattern and some he
   - [Contribution](#contribution)
     - [Branches](#branches)
     - [Report an issuer](#report-an-issuer)
+  - [Notes](#notes)
 
 ## Installation
 
@@ -129,3 +130,34 @@ Remember usage this structure:
 ### Report an issuer
 
 If you have an issue or a problem with the library you can report it in the [issues](https://github.com/Orbis25/fire-repo/issues)
+
+## Notes
+
+In react app you need create the next file:
+
+- `wabpack.config.js`
+
+```js
+const path = require("path");
+
+module.exports = {
+  entry: "./src/app.js",
+  output: {
+    path: path.join(__dirname, "public"),
+    filename: "bundle.js",
+  },
+  module: {
+    rules: [
+      {
+        loader: "babel-loader",
+        test: /\.js$|jsx/,
+        exclude: /node_modules/,
+      },
+    ],
+  },
+  devtool: "cheap-module-eval-source-map",
+  devServer: {
+    contentBase: path.join(__dirname, "public"),
+  },
+};
+```
