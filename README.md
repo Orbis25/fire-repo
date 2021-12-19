@@ -2,7 +2,7 @@
 
 This library is an implementation of the firebase repository pattern and some helpers to facilitate the work of developers using firebase.
 
-[![GitHub actions](https://github.com/Orbis25/fire-repo/actions/workflows/actions.yml/badge.svg)](https://github.com/Orbis25/fire-repo/actions/workflows/actions.yml)
+[![Main actions](https://github.com/Orbis25/fire-repo/actions/workflows/main.yml/badge.svg)](https://github.com/Orbis25/fire-repo/actions/workflows/main.yml)
 
 `npm i fire-repo`
 
