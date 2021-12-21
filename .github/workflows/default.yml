@@ -10,6 +10,7 @@ jobs:
           node-version: "14"
       - run: npm install
       - run: npm test
+      - run: tsc
       - uses: dorny/test-reporter@v1.5.0
         if: success() || failure()
         with:
