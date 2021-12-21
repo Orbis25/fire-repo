@@ -2,10 +2,15 @@
   "name": "fire-repo",
   "version": "1.1.4",
   "description": "This package is create to add repository pattern to firebase and implementing a helpers for help developers to write fast code.",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
   "scripts": {
     "test": "jest --verbose --passWithNoTests ./test --ci --reporters=default --reporters=jest-junit",
-    "dev-test": "jest --verbose --passWithNoTests ./test"
+    "dev-test": "jest --verbose --passWithNoTests ./test",
+    "build": "tsc"
   },
   "jest-junit": {
     "outputDirectory": "reports/",
