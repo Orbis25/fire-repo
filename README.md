@@ -135,7 +135,7 @@ If you have an issue or a problem with the library you can report it in the [iss
 
 In react app you need create the next file:
 
-- `wabpack.config.js`
+- `webpack.config.js`
 
 ```js
 const path = require("path");
