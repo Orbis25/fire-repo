@@ -6,6 +6,10 @@ This library is an implementation of the firebase repository pattern and some he
 
 `npm i fire-repo`
 
+or
+
+`yarn add fire-repo`
+
 ## Table of Contents
 
 - [FIRE-REPO 🔥](#fire-repo-)

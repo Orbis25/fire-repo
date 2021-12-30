@@ -16,6 +16,9 @@
     "outputDirectory": "reports/",
     "outputName": "jest-results.xml"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/fire-repo/"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Orbis25/fire-repo.git"
