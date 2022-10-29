@@ -85,9 +85,16 @@ export default abstract class FireRepository<T extends BaseModel>
   }
 
   getCollection(ordered: boolean = false): Query<DocumentData> {
+    if (ordered) {
+      return query(
+        collection(this.db, this.collectionName),
+        orderBy("createdAt", "desc"),
+        where("isDeleted", "==", false)
+      );
+    }
+
     return query(
       collection(this.db, this.collectionName),
-      ordered ? orderBy("createdAt", "desc") : null,
       where("isDeleted", "==", false)
     );
   }
