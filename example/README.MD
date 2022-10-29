@@ -1,3 +1,27 @@
+# Configuración inicial
+
+```ts
+import { initializeApp } from "firebase/app";
+
+//configuration
+const firebaseConfig = {
+  apiKey: "",
+  authDomain: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: "",
+};
+
+export const collection = "/test";
+
+//initialize
+export const firebaseConfiguration = initializeApp(firebaseConfig);
+```
+
+# Ejemplo de uso
+
+```ts
 import BaseModel from "../models/base.model";
 import { FireRepository } from "../index";
 import { firebaseConfiguration, collection } from "./configuration";
@@ -41,3 +65,4 @@ service
   .catch((e) => {
     console.log(e);
   });
+```
