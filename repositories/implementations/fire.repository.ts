@@ -13,8 +13,6 @@ import {
   getFirestore,
   DocumentData,
   Query,
-  startAt,
-  endAt,
   doc,
 } from "firebase/firestore";
 
@@ -48,16 +46,19 @@ export default abstract class FireRepository<T extends BaseModel>
     this.collectionName = collectionName;
   }
 
-  async getAll(filters?: FilterType<T>): Promise<T[]> {
-    let results = this.getCollection();
-   
+  async getAll(
+    filters?: FilterType<T>,
+    disableOrderBy: boolean = false
+  ): Promise<T[]> {
+    let results = this.getCollection(disableOrderBy);
+
     if (filters) {
       results = query(
         results,
-        where(filters.key.toString(), "==", filters.criteria)
+        where(filters.key.toString(), "==", filters.criteria.toString())
       );
     }
-    
+
     return toEntityArray<T>(await getDocs(results));
   }
 
@@ -69,7 +70,7 @@ export default abstract class FireRepository<T extends BaseModel>
       throw new Error("Document not found");
     }
     const doc = response.docs[0];
-    return getFormateadFirebaseData(doc.data()) as T;
+    return getFormateadFirebaseData(doc.data());
   }
 
   async getDocId(id: string): Promise<string> {
@@ -83,10 +84,10 @@ export default abstract class FireRepository<T extends BaseModel>
     return response.docs[0].id;
   }
 
-  getCollection(): Query<DocumentData> {
+  getCollection(ordered: boolean = false): Query<DocumentData> {
     return query(
       collection(this.db, this.collectionName),
-      orderBy("createdAt", "desc"),
+      ordered ? orderBy("createdAt", "desc") : null,
       where("isDeleted", "==", false)
     );
   }
@@ -103,7 +104,7 @@ export default abstract class FireRepository<T extends BaseModel>
   }
 
   async update(id: string, entity: T): Promise<T> {
-    var docId = await this.getDocId(id);
+    let docId = await this.getDocId(id);
     try {
       const docRef = doc(this.db, this.collectionName, docId);
       const data = { ...entity, updatedAt: new Date() } as object;
@@ -116,7 +117,7 @@ export default abstract class FireRepository<T extends BaseModel>
 
   async deleteEntity(id: string): Promise<void> {
     const docId = await this.getDocId(id);
-    return await deleteDoc(doc(this.db, this.collectionName, docId));
+    return deleteDoc(doc(this.db, this.collectionName, docId));
   }
 
   async remove(id: string): Promise<void> {

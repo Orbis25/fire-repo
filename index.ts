@@ -10,4 +10,18 @@
 import FireRepository from "./repositories/implementations/fire.repository";
 import BaseModel from "./models/base.model";
 
-export { FireRepository, BaseModel };
+import {
+  fileUpload,
+  getFormateadFirebaseData,
+  removeFile,
+  toEntityArray,
+} from "./helpers/index";
+
+const Helpers = {
+  fileUpload,
+  getFormateadFirebaseData,
+  removeFile,
+  toEntityArray,
+};
+
+export { FireRepository, BaseModel, Helpers };

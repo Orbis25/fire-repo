@@ -11,7 +11,7 @@ export type FilterType<TEntity extends BaseModel> = {
   /**
    * Represent the criteria to be used to filter the data
    */
-  criteria: string;
+  criteria: any;
   /**
    * Define if use == or contains to filter the data
    * (implementations in the next version)

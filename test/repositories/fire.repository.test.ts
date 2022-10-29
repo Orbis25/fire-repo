@@ -53,6 +53,29 @@ describe("FireRepository.getAll unit tests", () => {
     expect(results.length > 0).toEqual(true);
   });
 
+  test("get all test with filters using numbers", async () => {
+    jest
+      .spyOn(FireRepository.prototype, "getAll")
+      .mockImplementation((filters?: FilterType<any>) => {
+        if (filters && filters.key === "id" && filters.criteria === 1) {
+          return Promise.resolve([
+            {
+              id: 1,
+              name: "test",
+            },
+          ]);
+        }
+        return Promise.resolve([]);
+      });
+
+    const results = await FireRepository.prototype.getAll({
+      key: "id",
+      criteria: 1,
+      isEquals: false,
+    });
+    expect(results.length > 0).toEqual(true);
+  });
+
   test("get all test with filters not results", async () => {
     jest
       .spyOn(FireRepository.prototype, "getAll")
@@ -70,6 +93,26 @@ describe("FireRepository.getAll unit tests", () => {
 
     const results = await FireRepository.prototype.getAll();
     expect(results.length > 0).toEqual(false);
+  });
+
+  test("get all test with order by in false", async () => {
+    jest
+      .spyOn(FireRepository.prototype, "getAll")
+      .mockImplementation((filters?: FilterType<any>, orderBy?: false) => {
+        if (!orderBy) {
+          return Promise.resolve([
+            {
+              id: "1",
+              name: "test",
+            },
+          ]);
+        }
+
+        return Promise.resolve([]);
+      });
+
+    const results = await FireRepository.prototype.getAll(null, false);
+    expect(results.length > 0).toEqual(true);
   });
 });
 
@@ -324,6 +367,31 @@ describe("FireRepository.getCollection unit tests", () => {
       });
 
     const results = FireRepository.prototype.getCollection();
+    expect(results).not.toBeNull();
+  });
+
+  test("getCollection no ordered", async () => {
+    const docD = {
+      name: "test",
+      id: "2",
+    } as DocumentData;
+
+    const docs = {
+      ...docD,
+    } as Query<DocumentData>;
+
+    const docsEmpty = {} as Query<DocumentData>;
+
+    jest
+      .spyOn(FireRepository.prototype, "getCollection")
+      .mockImplementation((order?: boolean) => {
+        if (!order) {
+          return docs;
+        }
+        return docsEmpty;
+      });
+
+    const results = FireRepository.prototype.getCollection(false);
     expect(results).not.toBeNull();
   });
 });

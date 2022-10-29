@@ -10,9 +10,13 @@ export interface IRead<TEntity extends BaseModel> {
   /**
    * Get all the entities
    * @param filters - The filters to apply
+   * @param disableOrderBy - Disable the order by
    * @returns list of entities
    */
-  getAll(filters?: FilterType<TEntity>): Promise<TEntity[]>;
+  getAll(
+    filters?: FilterType<TEntity>,
+    disableOrderBy?: boolean
+  ): Promise<TEntity[]>;
 
   /**
    * Get the entity by id
@@ -31,7 +35,8 @@ export interface IRead<TEntity extends BaseModel> {
   /**
    * get the firebase collection with the filters of isDeleted = false applied
    * and the order by the createdAt field
-   * return
+   * @param disableOrderBy - Disable the order by createdAt
+   * @return the firebase collection
    */
-  getCollection(): Query<DocumentData>;
+  getCollection(ordered?: boolean): Query<DocumentData>;
 }
